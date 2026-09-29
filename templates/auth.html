@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}InvestTrack | Account{% endblock %}
+
+{% block content %}
+<div class="auth-page">
+    <div class="auth-card">
+        <a class="brand auth-brand" href="/">
+            <span class="brand-icon">↗</span>
+            <span>INVEST<span>TRACK</span></span>
+        </a>
+
+        <div class="auth-heading">
+            <span>{{ "CREATE ACCOUNT" if register else "WELCOME BACK" }}</span>
+            <h1>{{ "Start tracking your portfolio." if register else "Sign in to InvestTrack." }}</h1>
+            <p>{{ "Create your free academic demo portfolio." if register else "Continue to your investment dashboard." }}</p>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash">{{ messages[0] }}</div>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            {% if register %}
+                <label>Name</label>
+                <input type="text" name="name" placeholder="Your name" required>
+            {% endif %}
+
+            <label>Email</label>
+            <input type="email" name="email" placeholder="you@example.com" required>
+
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Minimum 6 characters" required>
+
+            <button class="btn auth-button" type="submit">
+                {{ "Create Account" if register else "Login" }} →
+            </button>
+        </form>
+
+        <div class="auth-footer">
+            {% if register %}
+                Already have an account? <a href="/login">Login</a>
+            {% else %}
+                New to InvestTrack? <a href="/register">Create an account</a>
+            {% endif %}
+        </div>
+
+        <div class="auth-note">
+            Academic project • No real money is traded.
+        </div>
+    </div>
+</div>
+{% endblock %}

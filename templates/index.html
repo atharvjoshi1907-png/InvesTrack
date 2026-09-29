@@ -1,0 +1,248 @@
+{% extends "base.html" %}
+{% block title %}InvestTrack | Invest Smarter{% endblock %}
+
+{% block content %}
+<div id="progress"></div>
+
+<nav class="navbar container glass-nav">
+    <a class="brand" href="/">
+        <span class="brand-icon">↗</span>
+        <span>INVEST<span>TRACK</span></span>
+    </a>
+
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#how">How It Works</a>
+        <a href="#future">Future</a>
+    </div>
+
+    <div class="nav-actions">
+        <a href="/login" class="login-link">Login</a>
+        <a class="btn btn-small magnetic" href="/register">Launch App</a>
+    </div>
+</nav>
+
+<main>
+    <!-- HERO -->
+    <section class="hero-3d">
+        <canvas id="marketCanvas"></canvas>
+        <div class="hero-grid"></div>
+
+        <div class="hero-content container">
+            <div class="hero-copy reveal">
+                <div class="eyebrow">◉ PYTHON • INDIAN MARKETS • PORTFOLIO INTELLIGENCE</div>
+                <h1>Track.<br>Analyze.<br><span>Invest Smarter.</span></h1>
+                <p>
+                    A cinematic portfolio experience powered by Python, Flask,
+                    database-driven analytics and Indian market data.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn magnetic" href="/register">Create Portfolio <b>↗</b></a>
+                    <a class="btn btn-outline magnetic" href="#features">Explore ↓</a>
+                </div>
+            </div>
+
+            <div class="hero-orbit reveal">
+                <div class="orbit orbit-1"></div>
+                <div class="orbit orbit-2"></div>
+                <div class="orbit orbit-3"></div>
+                <div class="hero-core">
+                    <span>₹</span>
+                    <strong>PORTFOLIO</strong>
+                    <small>INTELLIGENCE</small>
+                </div>
+                <div class="orbit-chip chip-a">NIFTY 50<br><b>24,337</b></div>
+                <div class="orbit-chip chip-b">P&amp;L<br><b>+13.50%</b></div>
+                <div class="orbit-chip chip-c">RISK<br><b>6.4 / 10</b></div>
+            </div>
+        </div>
+
+        <div class="scroll-cue">SCROLL TO EXPLORE <span>↓</span></div>
+    </section>
+
+    <!-- TICKER -->
+    <section class="ticker-wrap">
+        <div class="ticker container" id="marketTicker">
+            <div class="ticker-title">LIVE MARKET</div>
+            <div class="ticker-item"><span>NIFTY 50</span><strong>24,337.60</strong><em>+0.62%</em></div>
+            <div class="ticker-item"><span>SENSEX</span><strong>80,212.05</strong><em>+0.48%</em></div>
+            <div class="ticker-item"><span>RELIANCE</span><strong>₹2,940.35</strong><em>+1.12%</em></div>
+            <div class="ticker-item"><span>TCS</span><strong>₹3,987.45</strong><em class="negative">-0.35%</em></div>
+        </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="story-section container" id="about">
+        <div class="section-number reveal">01 / THE IDEA</div>
+        <div class="story-grid">
+            <div class="reveal">
+                <h2>Your portfolio.<br><span>One clear picture.</span></h2>
+            </div>
+            <div class="story-copy reveal">
+                <p>
+                    Investing can become confusing when numbers are spread across
+                    different apps, notes and spreadsheets. InvestTrack brings
+                    holdings, transactions, market prices and portfolio analytics
+                    together.
+                </p>
+                <p>
+                    It is designed as an academic project, but built with the
+                    architecture of a real web application.
+                </p>
+            </div>
+        </div>
+
+        <div class="stat-wall">
+            <div class="stat reveal"><small>PORTFOLIO VALUE</small><strong data-count="124850">₹0</strong><span>Live calculation</span></div>
+            <div class="stat reveal"><small>HOLDINGS</small><strong data-count="8">0</strong><span>Stored in database</span></div>
+            <div class="stat reveal"><small>RETURN</small><strong data-count="13.5">0%</strong><span>Python calculation</span></div>
+            <div class="stat reveal"><small>RISK SCORE</small><strong data-count="6.4">0</strong><span>Educational model</span></div>
+        </div>
+    </section>
+
+    <!-- 3D PRODUCT SHOWCASE -->
+    <section class="showcase-section">
+        <div class="container showcase-head reveal">
+            <div class="section-number">02 / THE EXPERIENCE</div>
+            <h2>A portfolio dashboard<br><span>that feels alive.</span></h2>
+        </div>
+
+        <div class="dashboard-scene">
+            <div class="dashboard-frame" id="dashboardFrame">
+                <div class="fake-browser">
+                    <div class="browser-bar">
+                        <span></span><span></span><span></span>
+                        <label>investtrack / dashboard</label>
+                    </div>
+                    <div class="mini-dashboard">
+                        <aside>
+                            <b>INVEST<span>TRACK</span></b>
+                            <i class="active">Dashboard</i>
+                            <i>Portfolio</i>
+                            <i>Add Investment</i>
+                            <i>Analytics</i>
+                            <i>Transactions</i>
+                        </aside>
+                        <div class="mini-main">
+                            <div class="mini-top">
+                                <div><small>PORTFOLIO VALUE</small><strong>₹1,24,850</strong><em>▲ 13.50%</em></div>
+                                <div><small>INVESTED</small><strong>₹1,10,000</strong><em>8 Holdings</em></div>
+                                <div><small>OVERALL P&amp;L</small><strong>₹14,850</strong><em>▲ 13.50%</em></div>
+                            </div>
+                            <div class="mini-panels">
+                                <div class="mini-chart">
+                                    <small>PORTFOLIO PERFORMANCE</small>
+                                    <svg viewBox="0 0 700 230" preserveAspectRatio="none">
+                                        <polyline points="0,190 55,175 95,182 140,145 190,150 235,125 275,135 315,105 360,120 405,80 445,95 490,65 540,78 585,45 630,55 700,20" fill="none" stroke="currentColor" stroke-width="5"/>
+                                    </svg>
+                                </div>
+                                <div class="mini-donut">
+                                    <small>ALLOCATION</small>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="mini-table">
+                                <small>TOP HOLDINGS</small>
+                                <span>RELIANCE <b>+8.91%</b></span>
+                                <span>TCS <b>+10.14%</b></span>
+                                <span>INFY <b>+7.66%</b></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="feature-section container" id="features">
+        <div class="section-number reveal">03 / FEATURES</div>
+        <h2 class="reveal">Built around the<br><span>numbers that matter.</span></h2>
+
+        <div class="feature-stack">
+            <article class="feature-3d reveal">
+                <div class="feature-icon">01</div>
+                <div><h3>Portfolio Tracking</h3><p>Store investments, transactions and holdings in a real SQLite database.</p></div>
+                <div class="feature-visual portfolio-visual"><i></i><i></i><i></i><i></i><i></i></div>
+            </article>
+
+            <article class="feature-3d reveal">
+                <div class="feature-icon">02</div>
+                <div><h3>Indian Market Data</h3><p>Python connects the application to supported Indian market APIs for current prices.</p></div>
+                <div class="feature-visual market-visual"><span>₹</span><b>+1.12%</b></div>
+            </article>
+
+            <article class="feature-3d reveal">
+                <div class="feature-icon">03</div>
+                <div><h3>Analytics</h3><p>Convert raw transactions into P&amp;L, allocation, returns and diversification insights.</p></div>
+                <div class="feature-visual analytics-visual"><div></div></div>
+            </article>
+
+            <article class="feature-3d reveal">
+                <div class="feature-icon">04</div>
+                <div><h3>Paper Trading</h3><p>Practice buying and selling with virtual capital without placing real orders.</p></div>
+                <div class="feature-visual paper-visual"><strong>₹1,00,000</strong><small>VIRTUAL CAPITAL</small></div>
+            </article>
+        </div>
+    </section>
+
+    <!-- HOW -->
+    <section class="how-section container" id="how">
+        <div class="section-number reveal">04 / HOW IT WORKS</div>
+        <h2 class="reveal">Four steps.<br><span>One portfolio.</span></h2>
+
+        <div class="timeline">
+            <div class="timeline-line"></div>
+            <article class="timeline-card reveal"><span>01</span><h3>Add</h3><p>Enter a stock, quantity and purchase price.</p></article>
+            <article class="timeline-card reveal"><span>02</span><h3>Connect</h3><p>Python retrieves supported market information.</p></article>
+            <article class="timeline-card reveal"><span>03</span><h3>Calculate</h3><p>Backend logic calculates value, returns and P&amp;L.</p></article>
+            <article class="timeline-card reveal"><span>04</span><h3>Understand</h3><p>Charts turn portfolio numbers into simple insights.</p></article>
+        </div>
+    </section>
+
+    <!-- TECH -->
+    <section class="tech-section">
+        <div class="container">
+            <div class="section-number reveal">05 / TECHNOLOGY</div>
+            <h2 class="reveal">Simple foundations.<br><span>Real application architecture.</span></h2>
+            <div class="tech-orbit reveal">
+                <div class="tech-center">PYTHON</div>
+                <div class="tech-node node-1">FLASK</div>
+                <div class="tech-node node-2">SQLITE</div>
+                <div class="tech-node node-3">HTML / CSS</div>
+                <div class="tech-node node-4">JAVASCRIPT</div>
+                <div class="tech-node node-5">MARKET API</div>
+                <div class="tech-node node-6">CHARTS</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FUTURE -->
+    <section class="future-section container" id="future">
+        <div class="section-number reveal">06 / FUTURE SCOPE</div>
+        <h2 class="reveal">This is only<br><span>version one.</span></h2>
+
+        <div class="roadmap-3d">
+            <article class="road-card reveal"><span>PHASE 01</span><b>CORE</b><p>Portfolio database, authentication, calculations and market prices.</p></article>
+            <article class="road-card active reveal"><span>PHASE 02</span><b>ANALYTICS</b><p>Historical performance, alerts, diversification and improved risk analysis.</p></article>
+            <article class="road-card reveal"><span>PHASE 03</span><b>AI</b><p>Educational portfolio assistant and personalized explanations.</p></article>
+        </div>
+
+        <div class="final-cta reveal">
+            <div><small>READY TO BUILD YOUR PORTFOLIO?</small><h2>Start with InvestTrack.</h2></div>
+            <a class="btn magnetic" href="/register">Launch InvestTrack ↗</a>
+        </div>
+    </section>
+</main>
+
+<footer class="footer container">
+    <div><strong>INVESTTRACK</strong><p>Indian Investment Portfolio Tracker • Academic Project • 2026</p></div>
+    <p>For educational purposes only. Not financial advice.</p>
+</footer>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.min.js"></script>
+<script src="{{ url_for('static', filename='js/experience.js') }}"></script>
+{% endblock %}
